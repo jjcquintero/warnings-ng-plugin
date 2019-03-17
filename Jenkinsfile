@@ -1,3 +1,4 @@
+node () {
     timeout(200) {
         stage ('Checkout') {
             checkout scm
@@ -43,3 +44,4 @@
             jacoco()
         }
     }
+}
