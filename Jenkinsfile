@@ -6,12 +6,6 @@ pipeline {
         }
     }
     stages {
-        stage ('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage ('Build') {
             steps {
                 sh 'mvn --batch-mode --errors --update-snapshots -Dmaven.test.failure.ignore clean verify checkstyle:checkstyle pmd:pmd findbugs:findbugs jacoco:prepare-agent test jacoco:report -Djenkins.test.timeout=240'
