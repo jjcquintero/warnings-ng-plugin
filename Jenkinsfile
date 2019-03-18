@@ -8,9 +8,10 @@ node () {
             String jdk = '8'
             String jdkTool = "jdk${jdk}"
             List<String> env = [
-                    "JAVA_HOME=${tool jdkTool}",
+                    "JAVA_HOME=/usr/lib/jvm/java-8-oracle/bin/",
                     'PATH+JAVA=${JAVA_HOME}/bin',
             ]
+            
             String command
             List<String> mavenOptions = [
                     '--batch-mode',
