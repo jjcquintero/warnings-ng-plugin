@@ -17,10 +17,10 @@ pipeline {
 
             recordIssues enabledForFailure: true, tool: mavenConsole(), referenceJobName: 'Plugins/warnings-ng-plugin/master'
             recordIssues enabledForFailure: true, tools: [java(), javaDoc()], sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
-            recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'checkstyle.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
-            recordIssues enabledForFailure: true, tool: cpd(pattern: 'cpd.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
-            recordIssues enabledForFailure: true, tool: pmdParser(pattern: 'pmd.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
-            recordIssues enabledForFailure: true, tool: spotBugs(pattern: 'spotbugsXml.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
+            recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'src/test/resources/io/jenkins/plugins/analysis/warnings/checkstyle.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
+            recordIssues enabledForFailure: true, tool: cpd(pattern: 'src/test/resources/io/jenkins/plugins/analysis/warnings/cpd.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
+            recordIssues enabledForFailure: true, tool: pmdParser(pattern: 'src/test/resources/io/jenkins/plugins/analysis/warnings/recorder/module-filter/pmd.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
+            recordIssues enabledForFailure: true, tool: spotBugs(pattern: 'src/test/resources/io/jenkins/plugins/analysis/warnings/spotbugsXml.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
             recordIssues enabledForFailure: true, tool: taskScanner(includePattern:'**/*.java', excludePattern:'target/**/*', highTags:'FIXME', normalTags:'TODO'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
         }
     }
