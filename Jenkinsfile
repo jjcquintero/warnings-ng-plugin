@@ -11,12 +11,14 @@ pipeline {
                 sh 'mvn -B -DskipTests clean verify checkstyle:checkstyle pmd:pmd findbugs:findbugs jacoco:prepare-agent test jacoco:report' 
             }
         }
-    }
-    stage("Dependency Check") {
+        
+        stage("Dependency Check") {
             steps {
                 dependencyCheckAnalyzer datadir: '', hintsFile: '', includeCsvReports: false, includeHtmlReports: false, includeJsonReports: false, includeVulnReports: false, isAutoupdateDisabled: false, outdir: '', scanpath: 'src', skipOnScmChange: false, skipOnUpstreamChange: false, suppressionFile: '', zipExtensions: ''
             }
+        }
     }
+    
     post {
         always {
 
