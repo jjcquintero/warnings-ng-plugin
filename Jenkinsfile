@@ -29,6 +29,7 @@ pipeline {
             recordIssues enabledForFailure: true, tool: pmdParser(pattern: 'target/test-classes/io/jenkins/plugins/analysis/warnings/recorder/module-filter/pmd.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
             recordIssues enabledForFailure: true, tool: spotBugs(pattern: 'target/test-classes/io/jenkins/plugins/analysis/warnings/spotbugsXml.xml'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
             recordIssues enabledForFailure: true, tool: taskScanner(includePattern:'**/*.java', excludePattern:'target/**/*', highTags:'FIXME', normalTags:'TODO'), sourceCodeEncoding: 'UTF-8', referenceJobName: 'Plugins/warnings-ng-plugin/master'
+            dependencyCheckPublisher canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
         }
     }
 }
